@@ -16,25 +16,29 @@ public class CalculatorController {
     }
 
     @GetMapping()
-    public String GreatingCalculator(){
-        return calculatorService.GreatingCalculator();
+    public String greatingCalculator(){
+       return "Welcome to Calculator";
     }
 
+//    public String ourStr(int n1, int n2, String znak, int res){
+//        return Integer.toString(n1) + znak + Integer.toString(n2) + " = " + Integer.toString(res);
+//    }
+
     @GetMapping("/plus")
-    public String CalculatorPlus(@RequestParam("num1") int num1, @RequestParam("num2") int num2){
-        return CalculatorService.plus(num1, num2);
+    public String CalculatorPlus(@RequestParam(value = "num1", required = false) int num1, @RequestParam(value = "num2", required = false) int num2){
+        return Integer.toString(num1) + " + " + Integer.toString(num2) + " = " + CalculatorService.plus(num1, num2);
     }
 
     @GetMapping("/minus")
     public String CalculatorMinus(@RequestParam("num1") int num1, @RequestParam("num2") int num2){
-        return CalculatorService.minus(num1, num2);
+        return Integer.toString(num1) + " - " + Integer.toString(num2) + " = " + CalculatorService.minus(num1, num2);
     }
     @GetMapping("/multiply")
     public String CalculatorMultiply(@RequestParam("num1") int num1, @RequestParam("num2") int num2){
-        return CalculatorService.multiply(num1, num2);
+        return Integer.toString(num1) + " * " + Integer.toString(num2) + " = " + CalculatorService.multiply(num1, num2);
     }
     @GetMapping("/divide")
     public String CalculatorDivide(@RequestParam("num1") int num1, @RequestParam("num2") int num2){
-        return CalculatorService.divide(num1, num2);
+        return Integer.toString(num1) + " / " + Integer.toString(num2) + " = " + CalculatorService.divide(num1, num2);
     }
 }
